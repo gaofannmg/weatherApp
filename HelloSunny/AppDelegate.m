@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
+#import "ShowWeatherInfoViewController.h"
 #import "AppPrepareTool.h"
 
 @implementation AppDelegate
@@ -18,7 +18,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    HomeViewController *mainViewController =[HomeViewController new];
+    ShowWeatherInfoViewController *mainViewController =[[ShowWeatherInfoViewController alloc] initWithNibName:@"ShowWeatherInfoViewController" bundle:[NSBundle mainBundle]];
     
     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:mainViewController];
     

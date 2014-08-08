@@ -35,11 +35,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.navigationController.navigationBarHidden=YES;
+    self.navigationController.navigationBarHidden=YES;
     
     //hhhhhh
     
-    contentView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, MAINCONTENTHEIGHT) style:UITableViewStylePlain];
+    contentView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT) style:UITableViewStylePlain];
     contentView.delegate = self;
     contentView.dataSource = self;
     contentView.backgroundColor=[UIColor greenColor];

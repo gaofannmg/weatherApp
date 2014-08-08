@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31E2D0DA1994E4A7001501B2 /* ShowWeatherInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E2D0D81994E4A7001501B2 /* ShowWeatherInfoViewController.m */; };
+		31E2D0DB1994E4A7001501B2 /* ShowWeatherInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E2D0D91994E4A7001501B2 /* ShowWeatherInfoViewController.xib */; };
 		9611378C18FFBE63008AC9C9 /* UINavigationBar+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9611378B18FFBE63008AC9C9 /* UINavigationBar+ext.m */; };
 		965514C9191F15D2004696B2 /* GPSInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 965514C6191F15D2004696B2 /* GPSInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		965514CA191F15D2004696B2 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 965514C8191F15D2004696B2 /* GPSManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -44,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31E2D0D71994E4A7001501B2 /* ShowWeatherInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowWeatherInfoViewController.h; sourceTree = "<group>"; };
+		31E2D0D81994E4A7001501B2 /* ShowWeatherInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowWeatherInfoViewController.m; sourceTree = "<group>"; };
+		31E2D0D91994E4A7001501B2 /* ShowWeatherInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowWeatherInfoViewController.xib; sourceTree = "<group>"; };
 		9611378A18FFBE63008AC9C9 /* UINavigationBar+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+ext.h"; sourceTree = "<group>"; };
 		9611378B18FFBE63008AC9C9 /* UINavigationBar+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+ext.m"; sourceTree = "<group>"; };
 		965514C5191F15D2004696B2 /* GPSInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSInfo.h; sourceTree = "<group>"; };
@@ -282,6 +287,9 @@
 				96B730D318FE55CB0083406A /* HomeViewController.m */,
 				96B730DC18FE84DE0083406A /* BaseViewController.h */,
 				96B730DD18FE84DE0083406A /* BaseViewController.m */,
+				31E2D0D71994E4A7001501B2 /* ShowWeatherInfoViewController.h */,
+				31E2D0D81994E4A7001501B2 /* ShowWeatherInfoViewController.m */,
+				31E2D0D91994E4A7001501B2 /* ShowWeatherInfoViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 			files = (
 				96B730C718FE543F0083406A /* Images.xcassets in Resources */,
 				96E591F51966951200496B9E /* WeatherTableViewCell.xib in Resources */,
+				31E2D0DB1994E4A7001501B2 /* ShowWeatherInfoViewController.xib in Resources */,
 				96B7308218FE52C20083406A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +409,7 @@
 				96B7308818FE52C20083406A /* AppDelegate.m in Sources */,
 				96B730CF18FE543F0083406A /* MKNetworkOperation.m in Sources */,
 				96E75995191A2B16003A9BA6 /* SafeClassMethod.m in Sources */,
+				31E2D0DA1994E4A7001501B2 /* ShowWeatherInfoViewController.m in Sources */,
 				96B730EC18FFA0820083406A /* UIImage+ext.m in Sources */,
 				96B730FA18FFB83D0083406A /* AppPrepareTool.m in Sources */,
 				9611378C18FFBE63008AC9C9 /* UINavigationBar+ext.m in Sources */,
