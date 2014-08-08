@@ -7,6 +7,7 @@
 //
 
 #import "ShowWeatherInfoViewController.h"
+#import "GPSManager.h"
 
 @interface ShowWeatherInfoViewController ()
 
@@ -22,6 +23,12 @@
         
     }
     return self;
+}
+
+-(void) doPoiGps
+{
+    GPSManager *gpsManger = [GPSManager shared];
+    [gpsManger startGPS];
 }
 
 - (void)viewDidLoad

@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>82DA37D5-D391-42D4-B8D9-0382C85AC64E</string>
+	<string>60F012C9-273A-4779-A8CC-1F72D967F146</string>
 	<key>IDESourceControlProjectName</key>
 	<string>HelloSunny</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>65D5AE3C-C231-4326-B655-541150F83F05</key>
-		<string>https://github.com/garinyong/HelloSunny.git</string>
+		<key>CF0D925D-5740-499B-BF1D-B095EC96852C</key>
+		<string>https://github.com/gaofannmg/weatherApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HelloSunny/HelloSunny.xcodeproj/project.xcworkspace</string>
+	<string>HelloSunny.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>65D5AE3C-C231-4326-B655-541150F83F05</key>
-		<string>../../..</string>
+		<key>CF0D925D-5740-499B-BF1D-B095EC96852C</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/garinyong/HelloSunny.git</string>
+	<string>https://github.com/gaofannmg/weatherApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>65D5AE3C-C231-4326-B655-541150F83F05</string>
+	<string>CF0D925D-5740-499B-BF1D-B095EC96852C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>65D5AE3C-C231-4326-B655-541150F83F05</string>
+			<string>CF0D925D-5740-499B-BF1D-B095EC96852C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>HelloSunny</string>
+			<string>weatherApp</string>
 		</dict>
 	</array>
 </dict>
