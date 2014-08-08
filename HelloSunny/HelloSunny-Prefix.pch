@@ -20,4 +20,5 @@
     #import "NotificationDefine.h"
     #import "BaseModel.h"
     #import "SafeClassMethod.h"
+    #import "CommonHelper.h"
 #endif

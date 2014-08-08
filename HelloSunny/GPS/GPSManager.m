@@ -63,8 +63,7 @@ static GPSManager *gps = nil;
 
 /* Get city by location  */
 -(void)getCityByLocation:(CLLocation *)location{
-    if(IOS_VERSION>=5.0){
-        //ios5上采用
+            //ios5上采用
         CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
         [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks,NSError *error){
             if(error){
@@ -87,13 +86,6 @@ static GPSManager *gps = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_REQUESTPOSITIONCITY object:nil];
             
         }];
-        
-    }else{
-        //根据坐标，获取城市信息
-        MKReverseGeocoder *reverseGeo = [[[MKReverseGeocoder alloc] initWithCoordinate:location.coordinate] autorelease];
-        reverseGeo.delegate = self;
-        [reverseGeo start];
-    }
 }
 
 
@@ -161,28 +153,6 @@ static GPSManager *gps = nil;
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     NSLog(@"GPS Failed!");
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FAILGETPOSITIONCITY object:nil];
-}
-
-#pragma mark - MKReverseGeocoder Delegate
--(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error{
-    NSLog(@"Geocoder Failed!");
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_FAILGETPOSITIONCITY object:nil];
-}
-
--(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark{
-    NSLog(@"Geocoder Successfully!");
-    [geocoder cancel];
-    //get city
-    if(placemark.locality){
-        self.gpsInfo.cityName = [self filterCityName:placemark.locality];
-    }else{
-        self.gpsInfo.cityName = [self filterCityName:placemark.administrativeArea];
-    }
-    //get Areaname
-   self.gpsInfo.areaName = [NSString stringWithFormat:@"%@%@",placemark.subLocality,placemark.thoroughfare];
-    self.gpsInfo.isCompleteGPS = YES;
-    NSLog(@"ios4--GPS CityName:%@,AreaName:%@",self.gpsInfo.cityName,self.gpsInfo.areaName);
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_REQUESTPOSITIONCITY object:nil];
 }
 
 #pragma mark - 纠偏算法

@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 #import "GPSInfo.h"
 
-@interface GPSManager : NSObject<CLLocationManagerDelegate,MKReverseGeocoderDelegate>
+@interface GPSManager : NSObject<CLLocationManagerDelegate>
 
 @property(nonatomic,retain) CLLocationManager *locationManager;
 @property(nonatomic,retain) GPSInfo *gpsInfo;

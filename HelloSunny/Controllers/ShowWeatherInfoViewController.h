@@ -9,10 +9,13 @@
 #import "BaseViewController.h"
 
 @interface ShowWeatherInfoViewController : BaseViewController
-@property (unsafe_unretained, nonatomic) IBOutlet UILabel *cityNameLbl;
-@property (unsafe_unretained, nonatomic) IBOutlet UILabel *lowLbl;
-@property (unsafe_unretained, nonatomic) IBOutlet UILabel *highLbl;
-@property (unsafe_unretained, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *cityNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *lowLbl;
+@property (weak, nonatomic) IBOutlet UILabel *highLbl;
+@property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *weatherDespLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 
-@property (unsafe_unretained, nonatomic) IBOutlet UILabel *weatherDespLbl;
+
+
 @end

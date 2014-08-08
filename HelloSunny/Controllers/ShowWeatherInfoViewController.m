@@ -21,14 +21,29 @@
     if (self) {
         // Custom initialization
         
+        GPSManager *gpsManger = [GPSManager shared];
+        [gpsManger startGPS];
+        
+        // 监听定位
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failGetPositionCity) name:NOTIFICATION_FAILGETPOSITIONCITY object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestPositionCity) name:NOTIFICATION_REQUESTPOSITIONCITY object:nil];
+        
     }
     return self;
 }
 
--(void) doPoiGps
+-(void) requestPositionCity
 {
     GPSManager *gpsManger = [GPSManager shared];
-    [gpsManger startGPS];
+    if (STRINGHASVALUE(gpsManger.gpsInfo.cityName))
+    {
+        _cityNameLbl.text = gpsManger.gpsInfo.cityName;
+    }
+}
+
+-(void) failGetPositionCity
+{
+    [CommonHelper showAlertTitle:nil Message:@"定位失败啦"];
 }
 
 - (void)viewDidLoad
