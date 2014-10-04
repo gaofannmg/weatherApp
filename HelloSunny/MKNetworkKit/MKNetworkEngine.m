@@ -437,7 +437,7 @@ static NSOperationQueue *_sharedNetworkQueue;
   
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-     __unsafe_unretained id weakSelf = self;
+     __weak id weakSelf = self;
     
     [operation setCacheHandler:^(MKNetworkOperation* completedCacheableOperation) {
       

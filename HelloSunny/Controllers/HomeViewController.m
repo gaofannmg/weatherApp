@@ -17,10 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    /*{"weatherinfo":{"city":"合肥","cityid":"101220101","temp1":"26℃","temp2":"15℃","weather":"晴转多云","img1":"d0.gif","img2":"n1.gif","ptime":"08:00"}}*/
-    _contentView.contentSize= CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 19);
-
+    
+    _contentView.contentSize= CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+1);
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getLocationSuccess:) name:NOTIFICATION_GetCityArera object:nil];
     
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getLocationFail) name:NOTIFICATION_FAILGETPOSITIONCITY object:nil];
@@ -39,10 +37,10 @@
     if (STRINGHASVALUE(gpsInfo.cityName)) {
         NSLog(@"%@",gpsInfo.cityName);
         
-        
+        NSString *cityCode = [self getCityID:gpsInfo.cityName];
         
         _cityDesp.text=gpsInfo.cityName;
-        wde =[[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
+        WeatherDataEngine *wde =[[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
         [wde getWeatherInfo:^(NSDictionary *dict) {
             dict = [dict safeObjectForKey:@"weatherinfo"];
             WeatherInfoModel *data = [[WeatherInfoModel alloc] initModel:dict];
@@ -51,16 +49,39 @@
             _highDesp.text = data.temp1;
             _timeDesp.text = [NSString stringWithFormat:@"国家气象局%@发布",data.ptime];
             
-            
-            
         } errorHandler:^(NSError *error) {
             
-        } cityid:@"101220101"];
+        } cityid:cityCode];
         
         
         
         
     }
+}
+
+-(NSString *) getCityID:(NSString *) cityName
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"citycode" ofType:@"plist"];
+    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    NSArray *arr = [data safeObjectForKey:@"citycode"];
+    
+    for (NSDictionary *temDict in arr) {
+        
+        NSArray *shiArr = [temDict safeObjectForKey:@"市"];
+        
+        for (NSDictionary *shiDict in shiArr) {
+            
+            NSString *tempCityName = [shiDict safeObjectForKey:@"市名"];
+            
+            if (STRINGHASVALUE(tempCityName)&&[tempCityName isEqualToString:cityName])
+            {
+                return [shiDict safeObjectForKey:@"编码"];
+            }
+        }
+    }
+    
+    return nil;
 }
 
 -(void) getLocationFail

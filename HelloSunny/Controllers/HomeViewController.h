@@ -13,7 +13,7 @@
 
 @interface HomeViewController : BaseViewController
 {
-    WeatherDataEngine *wde;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *stateDesp;
