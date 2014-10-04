@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315CED1319DFE1D1008DCD47 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315CED0E19DFE1D1008DCD47 /* cloud@2x.png */; };
+		315CED1419DFE1D1008DCD47 /* rain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315CED0F19DFE1D1008DCD47 /* rain@2x.png */; };
+		315CED1519DFE1D1008DCD47 /* snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315CED1019DFE1D1008DCD47 /* snow@2x.png */; };
+		315CED1619DFE1D1008DCD47 /* sun@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 315CED1119DFE1D1008DCD47 /* sun@2x.jpg */; };
+		315CED1719DFE1D1008DCD47 /* yudi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315CED1219DFE1D1008DCD47 /* yudi@2x.png */; };
 		319D973F19DF9D1F00201ECC /* citycode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 319D973E19DF9D1F00201ECC /* citycode.plist */; };
 		319D974319DFA0A000201ECC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D974119DFA0A000201ECC /* HomeViewController.m */; };
 		319D974419DFA0A000201ECC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319D974219DFA0A000201ECC /* HomeViewController.xib */; };
@@ -46,6 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		315CED0E19DFE1D1008DCD47 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud@2x.png"; sourceTree = "<group>"; };
+		315CED0F19DFE1D1008DCD47 /* rain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain@2x.png"; sourceTree = "<group>"; };
+		315CED1019DFE1D1008DCD47 /* snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow@2x.png"; sourceTree = "<group>"; };
+		315CED1119DFE1D1008DCD47 /* sun@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sun@2x.jpg"; sourceTree = "<group>"; };
+		315CED1219DFE1D1008DCD47 /* yudi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yudi@2x.png"; sourceTree = "<group>"; };
 		319D973E19DF9D1F00201ECC /* citycode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citycode.plist; sourceTree = "<group>"; };
 		319D974019DFA0A000201ECC /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		319D974119DFA0A000201ECC /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -133,19 +143,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		315CED0D19DFE1D1008DCD47 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				315CED0E19DFE1D1008DCD47 /* cloud@2x.png */,
+				315CED0F19DFE1D1008DCD47 /* rain@2x.png */,
+				315CED1019DFE1D1008DCD47 /* snow@2x.png */,
+				315CED1119DFE1D1008DCD47 /* sun@2x.jpg */,
+				315CED1219DFE1D1008DCD47 /* yudi@2x.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		319D973D19DF9D1F00201ECC /* Res */ = {
 			isa = PBXGroup;
 			children = (
 				319D973E19DF9D1F00201ECC /* citycode.plist */,
 			);
 			path = Res;
-			sourceTree = "<group>";
-		};
-		31B6B1011995072C00415471 /* img */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = img;
 			sourceTree = "<group>";
 		};
 		9638E7301959694900A341C4 /* Business */ = {
@@ -201,8 +216,8 @@
 		96B7307D18FE52C20083406A /* HelloSunny */ = {
 			isa = PBXGroup;
 			children = (
+				315CED0D19DFE1D1008DCD47 /* img */,
 				319D973D19DF9D1F00201ECC /* Res */,
-				31B6B1011995072C00415471 /* img */,
 				96E591F31966951200496B9E /* View */,
 				9638E7301959694900A341C4 /* Business */,
 				965514C4191F15D2004696B2 /* GPS */,
@@ -403,10 +418,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B730C718FE543F0083406A /* Images.xcassets in Resources */,
+				315CED1419DFE1D1008DCD47 /* rain@2x.png in Resources */,
 				96E591F51966951200496B9E /* WeatherTableViewCell.xib in Resources */,
+				315CED1719DFE1D1008DCD47 /* yudi@2x.png in Resources */,
+				315CED1319DFE1D1008DCD47 /* cloud@2x.png in Resources */,
 				319D973F19DF9D1F00201ECC /* citycode.plist in Resources */,
 				96B7308218FE52C20083406A /* InfoPlist.strings in Resources */,
 				319D974419DFA0A000201ECC /* HomeViewController.xib in Resources */,
+				315CED1519DFE1D1008DCD47 /* snow@2x.png in Resources */,
+				315CED1619DFE1D1008DCD47 /* sun@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

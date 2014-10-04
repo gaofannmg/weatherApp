@@ -13,7 +13,15 @@
 
 @interface HomeViewController : BaseViewController
 {
+    CAEmitterLayer *rainEmitter;   //下雨层
+    CAEmitterLayer *snowEmitter;   //下雪层
+    UIImageView *sunnyView;        //sunny
+    UIImageView *cloudyView;        //cloudy
     
+    WeatherDataEngine *wde;
+    
+    float picWidth;
+    float picHeight;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *stateDesp;
@@ -22,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeDesp;
 @property (weak, nonatomic) IBOutlet UILabel *cityDesp;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *contentBgView;
 
 
 @end
