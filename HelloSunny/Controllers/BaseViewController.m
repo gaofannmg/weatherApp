@@ -17,15 +17,12 @@
 //兼容IOS7
 - (void) viewDidLayoutSubviews
 {
+    self.navigationController.navigationBarHidden = YES;
     if (IOS_VERSION >= 7.0)
     {
+        self.automaticallyAdjustsScrollViewInsets = NO;  //UIScrowView 上下不留白，Ios7以上默认留白
         CGFloat topBarOffset = self.topLayoutGuide.length;
-        NSLog(@"%f",self.view.frame.origin.y);
-        self.view.frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y - topBarOffset, self.view.bounds.size.width, self.view.bounds.size.height);
-        
-        NSLog(@"%f",self.view.frame.origin.y);
-        //        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.view.frame = CGRectMake(self.view.bounds.origin.x, topBarOffset, self.view.bounds.size.width, self.view.bounds.size.height-topBarOffset);
     }
 }
 

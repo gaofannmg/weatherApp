@@ -12,8 +12,11 @@
 
 -(MKNetworkOperation *) getWeatherInfo:(CurResponseBlock) completionBlock
                           errorHandler:(MKNKErrorBlock) errorBlock
+                                cityid:(NSString *) cityid
 {
-    MKNetworkOperation *op = [self operationWithPath:@"data/cityinfo/101010100.html" params:nil httpMethod:@"GET"];
+    NSString *url = [NSString stringWithFormat:@"data/cityinfo/%@.html",cityid];
+    
+    MKNetworkOperation *op = [self operationWithPath:url params:nil httpMethod:@"GET"];
     
     [op addCompletionHandler:^(MKNetworkOperation *completedOperation)
     {

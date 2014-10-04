@@ -2,13 +2,11 @@
 //  HomeViewController.m
 //  HelloSunny
 //
-//  Created by garin on 14-4-16.
+//  Created by fan on 14-10-4.
 //  Copyright (c) 2014年 garin. All rights reserved.
 //
 
 #import "HomeViewController.h"
-#import "WeatherInfoModel.h"
-#import "WeatherTableViewCell.h"
 
 @interface HomeViewController ()
 
@@ -16,96 +14,24 @@
 
 @implementation HomeViewController
 
--(void) dealloc
-{
-    
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden=YES;
-    
-    //hhhhhh
-    
-    contentView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT) style:UITableViewStylePlain];
-    contentView.delegate = self;
-    contentView.dataSource = self;
-    contentView.backgroundColor=[UIColor greenColor];
-    contentView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:contentView];
+    // Do any additional setup after loading the view from its nib.
 }
 
--(void) testNet
-{
-    weatherDataEngine = [[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
-    [weatherDataEngine useCache];
-    [weatherDataEngine getWeatherInfo:^(NSDictionary *dict)
-     {
-         WeatherInfoModel *model = [[WeatherInfoModel alloc] initModel:[dict safeObjectForKey:@"weatherinfo"]];
-         
-         NSLog(@"%@",model);
-         
-     } errorHandler:^(NSError *error) {
-         NSLog(@"error~~~");
-     }];
-}
-
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section==0)
-    {
-        return 10;
-    }
-    
-    return 0;
-}
-
--(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 80;
-}
-
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *showInfoCellIdentifier = @"weatherTableViewCell";
-    WeatherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showInfoCellIdentifier];
-    if (!cell)
-    {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"WeatherTableViewCell" owner:self options:nil] lastObject];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = [UIColor redColor];
-    }
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-}
-
+*/
 
 @end
