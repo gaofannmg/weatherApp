@@ -14,8 +14,7 @@
 
 @implementation BaseViewController
 
-//兼容IOS7
-- (void) viewDidLayoutSubviews
+-(void) fitIos7
 {
     self.navigationController.navigationBarHidden = YES;
     if (IOS_VERSION >= 7.0)
@@ -23,6 +22,10 @@
         self.automaticallyAdjustsScrollViewInsets = NO;  //UIScrowView 上下不留白，Ios7以上默认留白
         CGFloat topBarOffset = self.topLayoutGuide.length;
         self.view.frame = CGRectMake(self.view.bounds.origin.x, topBarOffset, self.view.bounds.size.width, self.view.bounds.size.height-topBarOffset);
+        
+        UIView *gView = [[UIView alloc] initWithFrame:CGRectMake(0, -topBarOffset, self.view.bounds.size.width, topBarOffset)];
+        gView.backgroundColor = RGBA(40, 80, 113, 1);
+        [self.view addSubview:gView];
     }
 }
 
@@ -31,10 +34,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        
-        //http://m.weather.com.cn/data/101010100.html
-        
     }
     return self;
 }
@@ -44,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor=[UIColor whiteColor];
-    
+    [self fitIos7];
 }
 
 - (void)didReceiveMemoryWarning

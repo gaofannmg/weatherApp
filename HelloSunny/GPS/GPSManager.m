@@ -53,6 +53,12 @@ static GPSManager *gps = nil;
 /* Start Gps */
 -(void)startGPS{
     self.gpsInfo.isCompleteGPS = NO;
+    
+    if(IOS_VERSION >= 8.0)
+    {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
     [locationManager startUpdatingLocation];        //update location
 }
 
@@ -91,41 +97,31 @@ static GPSManager *gps = nil;
 
 /* Get city by location  */
 -(void)getCityAeraName:(CLLocation *)location{
-    if(IOS_VERSION>=5.0)
-    {
-        //ios5上采用
-        CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
-        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks,NSError *error){
-            GPSInfo *info=[[[GPSInfo alloc] init] autorelease];
-            info.coordinate=location.coordinate;
-            if(error)
-            {
-                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GetCityArera object:info];
-                return ;
-            }
-            //取最后一次定位
-            CLPlacemark *placemark=[placemarks objectAtIndex:placemarks.count-1];
-
-            if(placemark.locality){
-                info.cityName = [self filterCityName:placemark.locality];
-            }else{
-                info.cityName = [self filterCityName:placemark.administrativeArea];
-            }
-            for(NSString *key in placemark.addressDictionary){
-                NSLog(@"key--%@,name:%@",key,[placemark.addressDictionary objectForKey:key]);
-            }
-            info.areaName = [NSString stringWithFormat:@"%@%@",placemark.subLocality,placemark.thoroughfare?placemark.thoroughfare:@""];
-            NSLog(@"ios5--GPS CityName:%@,AreaName:%@",info.cityName,info.areaName);
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GetCityArera object:info];
-        }];
-    }
-    else
-    {
+    CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks,NSError *error){
         GPSInfo *info=[[[GPSInfo alloc] init] autorelease];
         info.coordinate=location.coordinate;
+        if(error)
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GetCityArera object:info];
+            return ;
+        }
+        //取最后一次定位
+        CLPlacemark *placemark=[placemarks objectAtIndex:placemarks.count-1];
+        
+        if(placemark.locality){
+            info.cityName = [self filterCityName:placemark.locality];
+        }else{
+            info.cityName = [self filterCityName:placemark.administrativeArea];
+        }
+        for(NSString *key in placemark.addressDictionary){
+            NSLog(@"key--%@,name:%@",key,[placemark.addressDictionary objectForKey:key]);
+        }
+        info.areaName = [NSString stringWithFormat:@"%@%@",placemark.subLocality,placemark.thoroughfare?placemark.thoroughfare:@""];
+        NSLog(@"ios5--GPS CityName:%@,AreaName:%@",info.cityName,info.areaName);
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GetCityArera object:info];
-    }
+    }];
 }
 
 /* 去掉“县、市” */
@@ -145,7 +141,7 @@ static GPSManager *gps = nil;
     self.gpsInfo.coordinate = newCoordinate;
     CLLocation *updateLocation = [[CLLocation alloc] initWithLatitude:newCoordinate.latitude longitude:newCoordinate.longitude];
     [self stopGPS];     //stop
-    [self getCityByLocation:updateLocation];
+    [self getCityAeraName:updateLocation];
     [updateLocation release];
     
 }
