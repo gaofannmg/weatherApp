@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 #import "GPSManager.h"
-
+#import "CityListViewController.h"
 @interface HomeViewController ()
 
 @end
@@ -21,7 +21,7 @@
     _contentView.contentSize= CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+1);
     
     _contentBgView.clipsToBounds = YES;
-    
+    [_cityBtn addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getLocationSuccess:) name:NOTIFICATION_GetCityArera object:nil];
     
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(getLocationFail) name:NOTIFICATION_FAILGETPOSITIONCITY object:nil];
@@ -30,6 +30,13 @@
     picHeight = 348;
     
     [self setGPS];
+}
+
+-(void) btnclick{
+    CityListViewController *vc = [[CityListViewController alloc] initWithNibName:@"CityListViewController" bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:vc animated:YES];
+
+    
 }
 
 -(void) setGPS{
@@ -45,7 +52,8 @@
         
         NSString *cityCode = [self getCityID:gpsInfo.cityName];
         
-        _cityDesp.text=gpsInfo.cityName;
+//        _cityBtn.text=gpsInfo.cityName;
+        [_cityBtn setTitle:gpsInfo.cityName forState:UIControlStateNormal];
         wde =[[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
         [wde getWeatherInfo:^(NSDictionary *dict) {
             dict = [dict safeObjectForKey:@"weatherinfo"];

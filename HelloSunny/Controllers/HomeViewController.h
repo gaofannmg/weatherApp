@@ -28,9 +28,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lowDesp;
 @property (weak, nonatomic) IBOutlet UILabel *highDesp;
 @property (weak, nonatomic) IBOutlet UILabel *timeDesp;
-@property (weak, nonatomic) IBOutlet UILabel *cityDesp;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentView;
 @property (weak, nonatomic) IBOutlet UIView *contentBgView;
+@property (weak, nonatomic) IBOutlet UIButton *cityBtn;
 
 
 @end

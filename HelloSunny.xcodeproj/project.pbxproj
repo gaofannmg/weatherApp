@@ -15,6 +15,8 @@
 		319D973F19DF9D1F00201ECC /* citycode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 319D973E19DF9D1F00201ECC /* citycode.plist */; };
 		319D974319DFA0A000201ECC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319D974119DFA0A000201ECC /* HomeViewController.m */; };
 		319D974419DFA0A000201ECC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319D974219DFA0A000201ECC /* HomeViewController.xib */; };
+		31B9369119E0F3C000766981 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B9368F19E0F3C000766981 /* CityListViewController.m */; };
+		31B9369219E0F3C000766981 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B9369019E0F3C000766981 /* CityListViewController.xib */; };
 		9611378C18FFBE63008AC9C9 /* UINavigationBar+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9611378B18FFBE63008AC9C9 /* UINavigationBar+ext.m */; };
 		965514C9191F15D2004696B2 /* GPSInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 965514C6191F15D2004696B2 /* GPSInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		965514CA191F15D2004696B2 /* GPSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 965514C8191F15D2004696B2 /* GPSManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -60,6 +62,9 @@
 		319D974019DFA0A000201ECC /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		319D974119DFA0A000201ECC /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		319D974219DFA0A000201ECC /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		31B9368E19E0F3C000766981 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
+		31B9368F19E0F3C000766981 /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
+		31B9369019E0F3C000766981 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
 		9611378A18FFBE63008AC9C9 /* UINavigationBar+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+ext.h"; sourceTree = "<group>"; };
 		9611378B18FFBE63008AC9C9 /* UINavigationBar+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+ext.m"; sourceTree = "<group>"; };
 		965514C5191F15D2004696B2 /* GPSInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSInfo.h; sourceTree = "<group>"; };
@@ -319,6 +324,9 @@
 				319D974019DFA0A000201ECC /* HomeViewController.h */,
 				319D974119DFA0A000201ECC /* HomeViewController.m */,
 				319D974219DFA0A000201ECC /* HomeViewController.xib */,
+				31B9368E19E0F3C000766981 /* CityListViewController.h */,
+				31B9368F19E0F3C000766981 /* CityListViewController.m */,
+				31B9369019E0F3C000766981 /* CityListViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 			files = (
 				96B730C718FE543F0083406A /* Images.xcassets in Resources */,
 				315CED1419DFE1D1008DCD47 /* rain@2x.png in Resources */,
+				31B9369219E0F3C000766981 /* CityListViewController.xib in Resources */,
 				96E591F51966951200496B9E /* WeatherTableViewCell.xib in Resources */,
 				315CED1719DFE1D1008DCD47 /* yudi@2x.png in Resources */,
 				315CED1319DFE1D1008DCD47 /* cloud@2x.png in Resources */,
@@ -459,6 +468,7 @@
 				96EC6DB11910FF6E000FEA10 /* WeatherDataEngine.m in Sources */,
 				96E591F9196699CD00496B9E /* WeatherTableViewCell.m in Sources */,
 				96B730D018FE543F0083406A /* Reachability.m in Sources */,
+				31B9369119E0F3C000766981 /* CityListViewController.m in Sources */,
 				96B730C818FE543F0083406A /* NSData+MKBase64.m in Sources */,
 				319D974319DFA0A000201ECC /* HomeViewController.m in Sources */,
 			);
