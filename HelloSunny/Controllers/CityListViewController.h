@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface CityListViewController : BaseViewController
+@interface CityListViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

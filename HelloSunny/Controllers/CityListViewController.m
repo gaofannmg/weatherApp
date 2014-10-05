@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,12 +28,41 @@
 #pragma mark -- UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
+}
+
+
+- (IBAction)btnBack:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 30)];
+    sectionView.backgroundColor = [UIColor clearColor];
+    
+    UILabel *zimuLable = [[UILabel alloc] initWithFrame:sectionView.bounds];
+    zimuLable.text = @"A";
+    [sectionView addSubview:zimuLable];
+    
+    return sectionView;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSArray *arr =[NSArray arrayWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",nil];
+    return arr;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

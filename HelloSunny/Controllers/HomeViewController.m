@@ -106,19 +106,15 @@
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"citycode" ofType:@"plist"];
     NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
     
-    NSArray *arr = [data safeObjectForKey:@"citycode"];
-    
-    for (NSDictionary *temDict in arr) {
+    for (NSArray *temDict in data.allValues) {
         
-        NSArray *shiArr = [temDict safeObjectForKey:@"市"];
-        
-        for (NSDictionary *shiDict in shiArr) {
-            
-            NSString *tempCityName = [shiDict safeObjectForKey:@"市名"];
+        for (NSDictionary *di in temDict) {
+         
+             NSString *tempCityName = [di safeObjectForKey:@"sName"];
             
             if (STRINGHASVALUE(tempCityName)&&[tempCityName isEqualToString:cityName])
             {
-                return [shiDict safeObjectForKey:@"编码"];
+                return [di safeObjectForKey:@"sNo"];
             }
         }
     }
