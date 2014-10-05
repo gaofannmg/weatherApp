@@ -34,6 +34,9 @@
 
 -(void) btnclick{
     CityListViewController *vc = [[CityListViewController alloc] initWithNibName:@"CityListViewController" bundle:[NSBundle mainBundle]];
+    vc.citySelect = ^(NSString *sno,NSString *sname) {
+        [self updateUIByNet:sno cityName:sname];
+    };
     [self.navigationController pushViewController:vc animated:YES];
 
     
@@ -49,31 +52,41 @@
     GPSInfo *gpsInfo = [notification object];
     if (STRINGHASVALUE(gpsInfo.cityName)) {
         NSLog(@"%@",gpsInfo.cityName);
-        
+            
+
         NSString *cityCode = [self getCityID:gpsInfo.cityName];
-        
-//        _cityBtn.text=gpsInfo.cityName;
-        [_cityBtn setTitle:gpsInfo.cityName forState:UIControlStateNormal];
-        wde =[[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
-        [wde getWeatherInfo:^(NSDictionary *dict) {
-            dict = [dict safeObjectForKey:@"weatherinfo"];
-            WeatherInfoModel *data = [[WeatherInfoModel alloc] initModel:dict];
             
-            _stateDesp.text = data.weather;
-            _lowDesp.text = data.temp1;
-            _highDesp.text = data.temp2;
-            _timeDesp.text = [NSString stringWithFormat:@"国家气象局%@发布",data.ptime];
+        [self updateUIByNet:cityCode cityName:gpsInfo.cityName];
             
-            [self setbgViewByState:data.weather];
-            
-        } errorHandler:^(NSError *error) {
-            
-        } cityid:cityCode];
-        
-        
-        
-        
     }
+}
+
+-(void) updateUIByNet:(NSString *) citycode cityName:(NSString *) cityName
+{
+    //        _cityBtn.text=gpsInfo.cityName;
+    [_cityBtn setTitle:cityName forState:UIControlStateNormal];
+    
+    if (wde == nil)
+    {
+        wde =[[WeatherDataEngine alloc] initWithHostName:@"www.weather.com.cn"];
+    }
+    
+    [wde cancelAllOperations];
+    
+    [wde getWeatherInfo:^(NSDictionary *dict) {
+        dict = [dict safeObjectForKey:@"weatherinfo"];
+        WeatherInfoModel *data = [[WeatherInfoModel alloc] initModel:dict];
+        
+        _stateDesp.text = data.weather;
+        _lowDesp.text = data.temp1;
+        _highDesp.text = data.temp2;
+        _timeDesp.text = [NSString stringWithFormat:@"国家气象局%@发布",data.ptime];
+        
+        [self setbgViewByState:data.weather];
+        
+    } errorHandler:^(NSError *error) {
+        
+    } cityid:citycode];
 }
 
 -(void) setbgViewByState:(NSString *) stateWeather

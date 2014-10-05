@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityListViewController">
             <connections>
+                <outlet property="contentTableView" destination="sa4-i1-euB" id="bLi-qw-TcI"/>
+                <outlet property="curSeachBar" destination="gwm-js-1Pk" id="1u6-m3-mQ5"/>
+                <outlet property="keywordsSearchBar" destination="gwm-js-1Pk" id="gZg-f5-DVv"/>
                 <outlet property="searchDisplayController" destination="MOI-8A-ewb" id="Fat-AS-fmj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
